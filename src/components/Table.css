@@ -1,0 +1,67 @@
+body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #c2e59c, #64b3f4); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #c2e59c, #64b3f4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.table-dark{
+  --bs-table-bg: #212529a2;
+}
+table {
+  text-align: center;
+}
+
+@media (max-width: 575px) {
+  table thead {
+    display: none;
+  }
+
+  table tr {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid white;
+    padding: 1px;
+  }
+
+  table td[data-label] {
+    display: flex;
+    font-weight: bold;
+  }
+
+  table td[data-label]::before {
+    content: attr(data-label);
+    color: lightgrey;
+    font-weight: 100;
+    width: 50%;
+  }
+}
+.selectBase {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 3px;
+}
+.form-select {
+  width: auto;
+}
+.spacing {
+  margin-right: 10px;
+}
+
+.convert {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+}
+.btn-pos{
+    position: relative;
+    left: 50%;
+    justify-content: center;
+}
+input, button, select, optgroup, textarea {
+  background: rgba(48, 43, 43, 0.336);
+  border-radius: 10px;
+}
