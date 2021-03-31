@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Table.css";
 import axios from "../axios";
-import requests from "../request";
 import TR from "./TableRow";
 import CurrencySelector from "./CurrencySelector";
 
@@ -11,7 +10,7 @@ function Table() {
   const [amount, setAmount] = useState(1);
 
   const currencies = {
-    EUR: rates.EUR,
+    EUR: 1.00,
     GBP: rates.GBP,
     USD: rates.USD,
     INR: rates.INR,
@@ -33,7 +32,7 @@ function Table() {
 
   useEffect(() => {
     async function fetchData() {
-      const request = await axios.get(requests.fetchLatest);
+      const request = await axios.get();
       setRates(request.data.rates);
       setBase(request.data.rates.USD);
       return request;
@@ -64,7 +63,7 @@ function Table() {
               <TR
                 sno={1}
                 country={"United States"}
-                rate={((rates.USD * amount) / baseCurrency).toFixed(2)}
+                rate={((currencies["USD"] * amount) / baseCurrency).toFixed(2)}
                 currency={"USD"}
               />
               <TR
@@ -82,7 +81,7 @@ function Table() {
               <TR
                 sno={4}
                 country={"Germany"}
-                rate={((rates.EUR * amount) / baseCurrency).toFixed(2)}
+                rate={((currencies["EUR"] * amount) / baseCurrency).toFixed(2)}
                 currency={"EUR"}
               />
               <TR
@@ -100,13 +99,13 @@ function Table() {
               <TR
                 sno={7}
                 country={"France"}
-                rate={((rates.EUR * amount) / baseCurrency).toFixed(2)}
+                rate={((currencies["EUR"] * amount) / baseCurrency).toFixed(2)}
                 currency={"EUR"}
               />
               <TR
                 sno={8}
                 country={"Italy"}
-                rate={((rates.EUR * amount) / baseCurrency).toFixed(2)}
+                rate={((currencies["EUR"] * amount) / baseCurrency).toFixed(2)}
                 currency={"EUR"}
               />
               <TR
