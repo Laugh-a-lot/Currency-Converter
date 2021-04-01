@@ -33,8 +33,8 @@ function Table() {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get();
-      setRates(request.data.rates);
-      setBase(request.data.rates.USD);
+      setRates(request.data.conversion_rates);
+      setBase(request.data.conversion_rates.USD);
       return request;
     }
     fetchData();
